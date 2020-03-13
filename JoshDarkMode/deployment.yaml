@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: joshdarkmode-deployment
+spec:
+  selector:
+    matchLabels:
+      app: joshdarkmode-pod
+  template:
+    metadata:
+      labels:
+        app: joshdarkmode-pod
+    spec:
+      containers:
+      - name: joshdarkmode-container
+        image: joshdarkmode:latest
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80
